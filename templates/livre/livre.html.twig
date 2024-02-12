@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des livres{% endblock %}
+{% block body %}
+    <h1>livre : {{ livre.titre }}</h1>
+    <img src={{ livre.image }}/>
+    <h5>{{ livre.isbn }}</h5>
+    <h5>{{ livre.editeur }}</h5>
+    <h5>{{ livre.dateEdition|date('d/m/Y') }}</h5>
+    <h5>{{ livre.prix }}</h5>
+    <h5>{{ livre.qte }}</h5>
+    <p>{{ livre.resume }}</p>
+{% endblock %}

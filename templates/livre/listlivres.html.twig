@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des livres{% endblock %}
+{% block body %}
+    <h1>Liste des livres :</h1>
+    <a class="btn btn-success my-3" href="/admin/livre/add">Ajouter Lewis Livre</a>
+    <table class="table">
+        <tr>
+            <td>Titre</td>
+            <td>ISBN</td>
+            <td>Editeur</td>
+            <td>Date Edition</td>
+            <td>Prix</td>
+            <td>Qte</td>
+            <td colspan=3>Action</td>
+        </tr>
+        {% for livre in livres %}
+            <tr>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.isbn }}</td>
+                <td>{{ livre.editeur }}</td>
+                <td>{{ livre.dateEdition|date('d/m/Y') }}</td>
+                <td>{{ livre.prix }}</td>
+                <td>{{ livre.qte }}</td>
+                <td><a class="btn btn-primary btn-sm" href="/admin/livre/{{ livre.id }}">voir plus</a></td>
+                <td><a class="btn btn-danger btn-sm" href="/admin/livre/delete/{{ livre.id }}">supprimer</a></td>
+                <td><a class="btn btn-success btn-sm" href="/admin/livre/editer/{{ livre.id }}">modifier</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
