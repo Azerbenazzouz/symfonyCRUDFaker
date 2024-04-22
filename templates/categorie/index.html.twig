@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Categories{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    <h1>Les Categories</h1>
+
+    <ul>
+        {% for categorie in categories %}
+            <li>{{ categorie.libelle }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
