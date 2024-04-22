@@ -20,7 +20,8 @@
                 <td>{{ livre.isbn }}</td>
                 <td>{{ livre.editeur }}</td>
                 <td>{{ livre.dateEdition|date('d/m/Y') }}</td>
-                <td> livre.categorie.libelle </td>
+                {#  <td> {{ livre.categorie.Libelle }} </td> #}
+                <td>-------</td>
                 <td>{{ livre.prix }}</td>
                 <td>{{ livre.qte }}</td>
                 <td><a class="btn btn-primary btn-sm" href="/admin/livre/{{ livre.id }}">voir plus</a></td>

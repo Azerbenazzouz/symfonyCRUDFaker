@@ -10,7 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+#[IsGranted("ROLE_ADMIN")]
 class LivreController extends AbstractController
 {
     #[Route('/admin/livre', name: 'app_livre')]
@@ -22,9 +24,12 @@ class LivreController extends AbstractController
     }
 
     #[Route('/admin/livres', name: 'app_livre_list_all')]
+    //#[IsGranted("ROLE_ADMIN")]
     public function listAll(LivreRepository $rep) {
 
+
         $livres = $rep ->findAll();
+        //var_dump($livres);
         $l = new Livre();
         return $this->render('livre/listlivres.html.twig', [
             'livres' => $livres,
